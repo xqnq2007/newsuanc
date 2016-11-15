@@ -249,18 +249,28 @@ void minRoute(graph* g, int* weight, int* route,int* final){
 			printf("到第%d个结点的最短路径值为：%d\n", i, weight[i]);
 			printf("到第%d个结点的最短路径为：\n", i);
 			int tmpv = i;
-			char* tmp = "";			
+			char* tmp="";
+			char tmp1[5];
 			while (tmpv != v0){
 				printf("%d->", tmpv);
-				char* tmp1 = "";
-				tmp = join2(tmp,intToStr(tmpv,tmp1));
+				
+				sprintf(tmp1,"%d",tmpv);
+				//printf("断点%d", 0);
+				tmp = join2(tmp,tmp1);
+				//printf("断点%d", 1);
 				tmpv = route[tmpv];
+				//printf("断点%d", 2);
 			}
 			printf("v0\n",v0);
-			char* tmp2 = "";
-			tmp = join2(tmp, intToStr(v0, tmp2));
+			//char tmp2[5];
+			//sprintf(tmp2, "%d", v0);
+			//tmp = join2(tmp, tmp2);
 			tmp = reversestr(tmp);
-			printf("%s\n", tmp);
+			printf("%d", v0);			
+			for (int i = 0; i < strlen(tmp); i++){
+				printf("->%c", tmp[i]);
+			}
+			//printf("%s\n", tmp);
 		}		
 	}
 }
